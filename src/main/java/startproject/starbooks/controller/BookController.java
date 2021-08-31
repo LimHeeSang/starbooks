@@ -1,6 +1,7 @@
 package startproject.starbooks.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@Slf4j
 public class BookController {
 
     private final BookRepository bookRepository;
@@ -27,16 +29,23 @@ public class BookController {
         Pageable pageable = PageRequest.of(page - 1, size);
 
         if(sort.equals("starRate")) {
+            log.info("[starRate Request : sort = {}, page = {}, size = {}]", sort, page, size);
+
             int start = (page-1) * size;
             List<Book> bookList  = bookRepository.findAllByOrderByStarRate(start, size);
             return new PageImpl<>(bookList, pageable, bookList.size());
         }
 
         if(sort.equals("heart")) {
+            log.info("[heart Request : sort = {}, page = {}, size = {}]", sort, page, size);
+
+
             int start = (page-1) * size;
             List<Book> bookList  = bookRepository.findAllByOrderByHeart(start, size);
             return new PageImpl<>(bookList, pageable, bookList.size());
         }
+
+        log.info("[createdAt Request : sort = {}, page = {}, size = {}]", sort, page, size);
 
         Page<Book> books = bookRepository.findAllByOrderByCreatedAtDesc(pageable);
         return books;
