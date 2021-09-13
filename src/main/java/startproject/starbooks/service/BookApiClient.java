@@ -6,7 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import startproject.starbooks.domain.dto.BooksResponseDto;
+import startproject.starbooks.dto.BooksResponseDto;
 
 @Service
 @RequiredArgsConstructor

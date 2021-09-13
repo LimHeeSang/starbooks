@@ -1,4 +1,4 @@
-package startproject.starbooks.domain.dto;
+package startproject.starbooks.dto;
 
 import lombok.Data;
 

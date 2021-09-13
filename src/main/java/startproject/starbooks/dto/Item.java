@@ -1,11 +1,8 @@
-package startproject.starbooks.domain.dto;
+package startproject.starbooks.dto;
 
 import lombok.Data;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 @Data
 public class Item {

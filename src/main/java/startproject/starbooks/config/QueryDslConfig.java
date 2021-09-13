@@ -1,4 +1,4 @@
-package startproject.starbooks;
+package startproject.starbooks.config;
 
 import com.querydsl.core.annotations.Config;
 import com.querydsl.jpa.impl.JPAQueryFactory;

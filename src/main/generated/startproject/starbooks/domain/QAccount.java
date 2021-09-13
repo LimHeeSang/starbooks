@@ -20,9 +20,13 @@ public class QAccount extends EntityPathBase<Account> {
 
     public static final QAccount account = new QAccount("account");
 
+    public final NumberPath<Integer> birthDate = createNumber("birthDate", Integer.class);
+
     public final ListPath<Comment, QComment> comments = this.<Comment, QComment>createList("comments", Comment.class, QComment.class, PathInits.DIRECT2);
 
     public final DateTimePath<java.time.LocalDateTime> createAt = createDateTime("createAt", java.time.LocalDateTime.class);
+
+    public final StringPath email = createString("email");
 
     public final ListPath<Heart, QHeart> hearts = this.<Heart, QHeart>createList("hearts", Heart.class, QHeart.class, PathInits.DIRECT2);
 
@@ -31,6 +35,12 @@ public class QAccount extends EntityPathBase<Account> {
     public final DateTimePath<java.time.LocalDateTime> modifiedAt = createDateTime("modifiedAt", java.time.LocalDateTime.class);
 
     public final StringPath password = createString("password");
+
+    public final StringPath phoneNumber = createString("phoneNumber");
+
+    public final ListPath<String, StringPath> roles = this.<String, StringPath>createList("roles", String.class, StringPath.class, PathInits.DIRECT2);
+
+    public final StringPath userId = createString("userId");
 
     public final StringPath userName = createString("userName");
 

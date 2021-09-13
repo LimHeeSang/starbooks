@@ -11,9 +11,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 
 @Entity
 @Getter
@@ -27,11 +26,23 @@ public class Account {
     @GeneratedValue
     private Long id;
 
-    @Column(unique = true)
+    @Column
     private String userName;
+
+    @Column(unique = true)
+    private String userId;
 
     @Column(nullable = false)
     private String password;
+
+    @Column(nullable = false, unique = true)
+    private String phoneNumber;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private int birthDate;
 
     @CreatedDate
     private LocalDateTime createAt;
@@ -54,9 +65,9 @@ public class Account {
         this.password = password;
     }
 
-    /*@ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.LAZY)
     @Builder.Default
-    private List<String> roles = new ArrayList<>();*/
+    private List<String> roles = new ArrayList<>();
 
     /**
      * 연관관계 메소드
