@@ -30,6 +30,7 @@ public class AccountService{
                 .userId(requestDto.getUserId())
                 .password(passwordEncoder.encode(requestDto.getPassword()))
                 .birthDate(requestDto.getBirthDate())
+                .phoneNumber(requestDto.getPhoneNumber())
                 .email(requestDto.getEmail())
                 .roles(Collections.singletonList("ROLE_USER"))
                 .build();
