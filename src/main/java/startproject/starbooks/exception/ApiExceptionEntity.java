@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 public class ApiExceptionEntity {
 
-    private String errorCode;
-    private String errorMessage;
+    private String code;
+    private String message;
 
 }

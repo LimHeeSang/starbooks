@@ -12,6 +12,7 @@ public enum ExceptionEnum {
     ACCESS_DENIED_EXCEPTION(HttpStatus.UNAUTHORIZED, "E0002"),  //접근 error
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "E0003"),  //server error 이거 뜨면 나한테 알려줘야함!
 
+
     DUPLICATION_ERROR(HttpStatus.BAD_REQUEST, "E0004", "중복된 사용자 ID가 존재합니다."),
     NOTSAME_PASSWORD_ERROR(HttpStatus.BAD_REQUEST, "E0005", "비밀번호와 비밀번호 확인이 같지 않습니다."),
     NOT_REGISTER_ID(HttpStatus.BAD_REQUEST, "E0006", "가입되지 않은 Id 입니다."),

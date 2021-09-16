@@ -1,8 +1,8 @@
 package startproject.starbooks.controller;
 
-import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
@@ -12,6 +12,8 @@ import startproject.starbooks.domain.Account;
 import startproject.starbooks.dto.AccountRequestDto;
 import startproject.starbooks.exception.ApiException;
 import startproject.starbooks.exception.ExceptionEnum;
+import startproject.starbooks.message.LoginMessage;
+import startproject.starbooks.message.RegisterMessage;
 import startproject.starbooks.repository.AccountRepository;
 import startproject.starbooks.service.AccountService;
 
@@ -50,8 +52,15 @@ public class AccountController {
 
         accountService.registerAccount(requestDto);
 
+        RegisterMessage registerMessage = RegisterMessage.builder()
+                .code("E0008")
+                .message("정상 요청입니다")
+                .build();
+
+
         log.info("[registerAccount 실행 끝]");
-        return ResponseEntity.ok().build();
+        return new ResponseEntity<>(registerMessage, HttpStatus.OK);
+
     }
 
 
@@ -60,9 +69,10 @@ public class AccountController {
      */
     @CrossOrigin(origins = "*")
     @PostMapping("/api/login")
-    public String login(@RequestBody Map<String, String> loginAccount) {
+    public ResponseEntity login(@RequestBody Map<String, String> loginAccount) {
         log.info("[login 실행]");
 
+        // 가입된 id가 없습니다.
         Account findAccount = accountRepository.findByUserId(loginAccount.get("id")).orElseThrow(() -> new ApiException(ExceptionEnum.NOT_REGISTER_ID));
 
 
@@ -71,12 +81,17 @@ public class AccountController {
             throw new ApiException(ExceptionEnum.WRONG_PASSWORD);
         }
 
-        log.info("[findAccount = {}]", findAccount);
-        JsonObject obj = new JsonObject();
-        obj.addProperty("token", jwtTokenProvider.createToken(findAccount.getUserId(), findAccount.getRoles()));
+        String token = jwtTokenProvider.createToken(findAccount.getUserId(), findAccount.getRoles());
+
+        LoginMessage loginMessage = LoginMessage.builder()
+                .code("E0008")
+                .message("정상 요청입니다")
+                .token(token)
+                .build();
+
 
         log.info("[login 실행 끝]");
-        return obj.toString();
+        return new ResponseEntity<>(loginMessage, HttpStatus.OK);
     }
 
 }
