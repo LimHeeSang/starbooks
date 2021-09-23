@@ -76,7 +76,7 @@ public class AccountController {
         Account findAccount = accountRepository.findByUserId(loginAccount.get("id")).orElseThrow(() -> new ApiException(ExceptionEnum.NOT_REGISTER_ID));
 
 
-        if (! passwordEncoder.matches(loginAccount.get("password"), findAccount.getPassword())) {
+        if (!passwordEncoder.matches(loginAccount.get("password"), findAccount.getPassword())) {
             // 잘못된 비밀번호입니다.
             throw new ApiException(ExceptionEnum.WRONG_PASSWORD);
         }
@@ -94,4 +94,21 @@ public class AccountController {
         return new ResponseEntity<>(loginMessage, HttpStatus.OK);
     }
 
+    /**
+     * 아이디 중복 체크
+     */
+    @CrossOrigin(origins = "*")
+    @GetMapping("/api/check/{userId}")
+    public ResponseEntity checkDuplicateUserId(@PathVariable String userId) {
+        if (accountRepository.existsByUserId(userId)) {
+            throw new ApiException(ExceptionEnum.DUPLICATION_ERROR);
+        }
+
+        RegisterMessage registerMessage = RegisterMessage.builder()
+                .code("E0008")
+                .message("정상 요청입니다")
+                .build();
+
+        return new ResponseEntity<>(registerMessage, HttpStatus.OK);
+    }
 }
