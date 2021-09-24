@@ -100,6 +100,9 @@ public class AccountController {
     @CrossOrigin(origins = "*")
     @GetMapping("/api/check/{userId}")
     public ResponseEntity checkDuplicateUserId(@PathVariable String userId) {
+        log.info("[checkDuplicateUserId 실행]");
+        log.info("[중복 체크 요청 Id = {}", userId);
+
         if (accountRepository.existsByUserId(userId)) {
             throw new ApiException(ExceptionEnum.DUPLICATION_ERROR);
         }
@@ -109,6 +112,8 @@ public class AccountController {
                 .message("정상 요청입니다")
                 .build();
 
+
+        log.info("[checkDuplicateUserId 실행]");
         return new ResponseEntity<>(registerMessage, HttpStatus.OK);
     }
 }
