@@ -47,7 +47,7 @@ public class AccountController {
         }
         if (!requestDto.getPassword().equals(requestDto.getPasswordConfirm())) {
             // 비밀번호와 비밀번호 확인이 일치하지 않습니다.
-            throw new ApiException(ExceptionEnum.NOTSAME_PASSWORD_ERROR);
+            throw new ApiException(ExceptionEnum.DIFFERENT_PASSWORD_ERROR);
         }
 
         accountService.registerAccount(requestDto);
@@ -104,7 +104,7 @@ public class AccountController {
         log.info("[중복 체크 요청 Id = {}", userId);
 
         if (accountRepository.existsByUserId(userId)) {
-            throw new ApiException(ExceptionEnum.DUPLICATION_ERROR);
+            throw new ApiException(ExceptionEnum.CHECK_DUPLICATION_ERROR);
         }
 
         RegisterMessage registerMessage = RegisterMessage.builder()
