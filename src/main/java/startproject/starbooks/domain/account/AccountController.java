@@ -2,6 +2,7 @@ package startproject.starbooks.domain.account;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +15,6 @@ import startproject.starbooks.message.LoginMessage;
 import startproject.starbooks.message.SuccessMessage;
 
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -32,7 +31,7 @@ public class AccountController {
      */
     @CrossOrigin(origins = "*")
     @PostMapping("/signup")
-    public ResponseEntity<SuccessMessage> signup(@Validated @RequestBody AccountRequestDto requestDto) {
+    public ResponseEntity signup(@Validated @RequestBody AccountRequestDto requestDto) {
         log.info("[registerAccount 실행 시작]");
 
         accountService.singup(requestDto);
@@ -40,7 +39,11 @@ public class AccountController {
         SuccessMessage successMessage = createSuccessMessage();
 
         log.info("[registerAccount 실행 끝]");
-        return ResponseEntity.ok(successMessage);
+
+
+        //return ResponseEntity.ok(successMessage);
+
+        return new ResponseEntity<>(successMessage, HttpStatus.OK);
 
     }
 
