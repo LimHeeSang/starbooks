@@ -1,7 +1,10 @@
 package startproject.starbooks.dto;
 
 import lombok.Getter;
+import org.hibernate.validator.constraints.Length;
+import org.springframework.format.annotation.NumberFormat;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -9,31 +12,27 @@ import javax.validation.constraints.NotNull;
 @Getter
 public class AccountRequestDto {
 
-    @NotEmpty
-    @NotBlank
+    @NotBlank(message = "userName이 빈값입니다.")
     private String userName;
 
-    @NotEmpty
-    @NotBlank
+    @NotBlank(message = "userId가 빈값 입니다.")
     private String userId;
 
-    @NotEmpty
-    @NotBlank
+    @NotBlank(message = "password가 빈값 입니다.")
     private String password;
 
-    @NotEmpty
-    @NotBlank
+    @NotBlank(message = "passwordConfirm가 빈값 입니다.")
     private String passwordConfirm;
 
-    @NotBlank
-    @NotEmpty
+    @NotBlank(message = "전화번호가 빈값입니다.")
+    @NumberFormat
     private String phoneNumber;
 
-    @NotEmpty
     @NotBlank
+    @Email(message = "이메일 형식이 올바르지 않습니다.")
     private String email;
 
-    @NotNull
+    @NotNull(message = "birthDate는 null일 수 없습니다.")
     private int birthDate;
 
 }

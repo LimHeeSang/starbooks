@@ -73,10 +73,15 @@ public class CommentController {
      */
     @CrossOrigin(origins = "*")
     @PutMapping("/books/{book_id}/comments/{comment_id}")
-    public ResponseEntity<SuccessMessage> updateComment(@RequestBody CommentRequestDto requestDto,
+    public ResponseEntity<SuccessMessage> updateComment(@Validated @RequestBody CommentRequestDto requestDto,
+                                                        BindingResult bindingResult,
                                                         @PathVariable("book_id") Long bookId,
                                                         @PathVariable("comment_id") Long commentId,
                                                         @AuthenticationPrincipal User user){
+
+        if (bindingResult.hasErrors()) {
+            throw new ApiException(ExceptionEnum.STAR_ARRANGE_ERROR);
+        }
 
         Account findAccount = accountRepository.findByUserId(user.getUsername()).orElseThrow(
                 () -> new ApiException(ExceptionEnum.ACCESS_DENIED_EXCEPTION)

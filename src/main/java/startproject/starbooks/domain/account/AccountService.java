@@ -38,14 +38,20 @@ public class AccountService{
 
 
     @Transactional
-    public void singup(AccountRequestDto requestDto) {
+    public void singUp(AccountRequestDto requestDto) {
 
-        Optional<Account> findAccount = accountRepository.findByUserId(requestDto.getUserId());
-
-        if (findAccount.isPresent()) {
+        if (accountRepository.existsByUserId(requestDto.getUserId())) {
             // 중복된 사용자 ID가 존재합니다.
             throw new ApiException(ExceptionEnum.DUPLICATION_ERROR);
         }
+        if (accountRepository.existsByEmail(requestDto.getEmail())) {
+            // 등록된 이메일이 존재합니다.
+            throw new ApiException(ExceptionEnum.DUPLICATION_EMAIL_ERROR);
+        }
+        if (accountRepository.existsByPhoneNumber(requestDto.getPhoneNumber())) {
+            throw new ApiException(ExceptionEnum.DUPLICATION_PHONE_NUMBER);
+        }
+
         if (!requestDto.getPassword().equals(requestDto.getPasswordConfirm())) {
             // 비밀번호와 비밀번호 확인이 일치하지 않습니다.
             throw new ApiException(ExceptionEnum.DIFFERENT_PASSWORD_ERROR);

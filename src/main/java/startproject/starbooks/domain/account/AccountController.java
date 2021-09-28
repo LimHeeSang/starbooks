@@ -4,6 +4,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import startproject.starbooks.dto.AccountRequestDto;
@@ -15,6 +18,8 @@ import startproject.starbooks.message.LoginMessage;
 import startproject.starbooks.message.SuccessMessage;
 
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -31,20 +36,28 @@ public class AccountController {
      */
     @CrossOrigin(origins = "*")
     @PostMapping("/signup")
-    public ResponseEntity<SuccessMessage> signup(@RequestBody AccountRequestDto requestDto) {
+    public ResponseEntity<SuccessMessage> signup(@Validated @RequestBody AccountRequestDto requestDto, BindingResult bindingResult) {
         log.info("[registerAccount 실행 시작]");
 
-        accountService.singup(requestDto);
+        if (bindingResult.hasErrors()) {
+            String messages = new String();
+
+            List<ObjectError> allErrors = bindingResult.getAllErrors();
+            for (ObjectError error : allErrors) {
+                log.error("error: {}", error);
+                // 코드 정보를 확인할 수 있다.
+                messages += (" " + error.getDefaultMessage());
+            }
+
+            throw new RuntimeException(messages);
+        }
+
+        accountService.singUp(requestDto);
 
         SuccessMessage successMessage = createSuccessMessage();
 
         log.info("[registerAccount 실행 끝]");
-
-
-        //return ResponseEntity.ok(successMessage);
-
-        return new ResponseEntity<>(successMessage, HttpStatus.OK);
-
+        return ResponseEntity.ok(successMessage);
     }
 
 
@@ -66,8 +79,7 @@ public class AccountController {
 
 
         log.info("[login 실행 끝]");
-        return ResponseEntity.ok()
-                .body(loginMessage);
+        return ResponseEntity.ok(loginMessage);
     }
 
     /**

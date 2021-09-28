@@ -8,12 +8,14 @@ import org.springframework.http.HttpStatus;
 @ToString
 public enum ExceptionEnum {
 
-    RUNTIME_EXCEPTION(HttpStatus.BAD_REQUEST, "E0001"), //client error
+    RUNTIME_EXCEPTION(HttpStatus.BAD_REQUEST, "E0001", "Bad Request Error"), //client error
     ACCESS_DENIED_EXCEPTION(HttpStatus.UNAUTHORIZED, "E0002"),  //접근 error
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "E0003"),  //server error 이거 뜨면 나한테 알려줘야함!
 
     DUPLICATION_ERROR(HttpStatus.BAD_REQUEST, "E0004", "중복된 사용자 ID가 존재합니다."),
-    CHECK_DUPLICATION_ERROR(HttpStatus.OK, "E0009", "중복된 사용자 ID가 존재합니다."),
+    CHECK_DUPLICATION_ERROR(HttpStatus.BAD_REQUEST, "E0009", "중복된 사용자 ID가 존재합니다."),
+    DUPLICATION_EMAIL_ERROR(HttpStatus.BAD_REQUEST, "E0015", "등록된 이메일이 존재합니다"),
+    DUPLICATION_PHONE_NUMBER(HttpStatus.BAD_REQUEST, "E0016", "등록된 휴대폰 번호가 존재합니다"),
 
     DIFFERENT_PASSWORD_ERROR(HttpStatus.BAD_REQUEST, "E0005", "비밀번호와 비밀번호 확인이 같지 않습니다."),
     NOT_REGISTER_ID(HttpStatus.BAD_REQUEST, "E0006", "가입되지 않은 Id 입니다."),
@@ -24,7 +26,7 @@ public enum ExceptionEnum {
 
     DUPLICATION_COMMENT(HttpStatus.BAD_REQUEST, "E0010", "댓글은 한 책당 한 번만 가능합니다."),
     NOT_EXIST_COMMENT(HttpStatus.BAD_REQUEST, "E0011", "댓글이 존재하지 않습니다."),
-    STAR_ARRANGE_ERROR(HttpStatus.BAD_REQUEST, "E0012", "평점은 0~5사이만 가능합니다"),
+    STAR_ARRANGE_ERROR(HttpStatus.BAD_REQUEST, "E0012", "평점은 1~5사이만 가능합니다"),
 
     NOT_EXIST_HEART(HttpStatus.BAD_REQUEST, "E0013", "좋아요가 존재하지 않습니다."),
     ALREADY_EXIST_HEART(HttpStatus.BAD_REQUEST, "E0014", "이미 좋아요 상태입니다."),

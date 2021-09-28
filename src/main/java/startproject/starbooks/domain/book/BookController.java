@@ -31,7 +31,7 @@ public class BookController {
             List<Book> bookList  = bookRepository.findAllByOrderByStarRate(start, size);
             return new PageImpl<>(bookList, pageable, bookList.size());
         }
-
+        
         if(sort.equals("heart")) {
             log.info("[heart Request : sort = {}, page = {}, size = {}]", sort, page, size);
 

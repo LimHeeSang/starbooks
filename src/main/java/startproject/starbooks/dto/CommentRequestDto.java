@@ -9,7 +9,7 @@ public class CommentRequestDto {
 
     private String comment;
 
-    @Range(min=0, max=5)
+    @Range(min=1, max=5, message = "평점은 1~5사이만 가능합니다.")
     private Integer starRate;
 
 }
