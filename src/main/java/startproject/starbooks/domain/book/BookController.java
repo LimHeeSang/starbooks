@@ -1,11 +1,9 @@
-package startproject.starbooks.controller;
+package startproject.starbooks.domain.book;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.*;
 import org.springframework.web.bind.annotation.*;
-import startproject.starbooks.domain.Book;
-import startproject.starbooks.repository.BookRepository;
 
 import java.util.List;
 

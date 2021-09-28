@@ -1,20 +1,18 @@
 package startproject.starbooks.message;
 
-import com.google.gson.JsonObject;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 
-@Data
-public class LoginMessage {
+@Getter
+public class SuccessMessage {
 
     private String code;
     private String message;
-    private String token;
 
     @Builder
-    public LoginMessage(String code, String message, String token) {
+    public SuccessMessage(String code, String message) {
         this.code = code;
         this.message = message;
-        this.token = token;
     }
 }

@@ -1,4 +1,4 @@
-package startproject.starbooks.domain;
+package startproject.starbooks.domain.account;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,11 +7,15 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import startproject.starbooks.domain.comment.Comment;
+import startproject.starbooks.domain.heart.Heart;
+import startproject.starbooks.domain.refresh.RefreshToken;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Entity
@@ -24,6 +28,7 @@ public class Account {
 
     @Id
     @GeneratedValue
+    @Column(name = "account_id")
     private Long id;
 
     @Column
@@ -60,14 +65,13 @@ public class Account {
     @Builder.Default
     private List<Heart> hearts = new ArrayList<>();
 
-    public Account(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
 
-    @ElementCollection(fetch = FetchType.LAZY)
-    @Builder.Default
-    private List<String> roles = new ArrayList<>();
+    @Enumerated(EnumType.STRING)
+    private UserRole userRole;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "refresh_id")
+    private RefreshToken refreshToken;
 
     /**
      * 연관관계 메소드
@@ -90,5 +94,23 @@ public class Account {
     public void deleteHeart(Heart heart) {
         this.hearts.remove(heart);
         heart.setAccount(null);
+    }
+
+    /**
+     * refresh token 할당
+     */
+    public RefreshToken setRefreshToken(String tokenValue) {
+        RefreshToken refreshToken = new RefreshToken();
+        refreshToken.setRefreshValue(tokenValue);
+        this.refreshToken = refreshToken;
+
+        return refreshToken;
+    }
+
+    /**
+     * refresh token
+     */
+    public Optional<RefreshToken> getRefreshToken() {
+        return Optional.ofNullable(refreshToken);
     }
 }

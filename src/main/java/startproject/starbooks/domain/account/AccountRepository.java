@@ -1,7 +1,6 @@
-package startproject.starbooks.repository;
+package startproject.starbooks.domain.account;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import startproject.starbooks.domain.Account;
 
 import java.util.Optional;
 

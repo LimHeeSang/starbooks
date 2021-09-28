@@ -1,4 +1,4 @@
-package startproject.starbooks.service;
+package startproject.starbooks.domain.book;
 
 import org.springframework.stereotype.Service;
 

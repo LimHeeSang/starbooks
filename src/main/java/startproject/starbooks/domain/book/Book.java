@@ -1,15 +1,16 @@
-package startproject.starbooks.domain;
+package startproject.starbooks.domain.book;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import startproject.starbooks.domain.comment.Comment;
+import startproject.starbooks.domain.heart.Heart;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Getter
@@ -68,7 +69,7 @@ public class Book {
 
     public void deleteComment(Comment comment) {
         this.comments.remove(comment);
-        comment.setComment(null);
+        comment.deleteComment();
     }
 
     public void addHeart(Heart heart) {
@@ -78,6 +79,6 @@ public class Book {
 
     public void deleteHeart(Heart heart) {
         this.hearts.remove(heart);
-        heart.setBook(null);
+        heart.deleteHeart();
     }
 }

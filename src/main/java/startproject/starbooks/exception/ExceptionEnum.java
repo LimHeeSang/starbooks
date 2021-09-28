@@ -17,8 +17,22 @@ public enum ExceptionEnum {
 
     DIFFERENT_PASSWORD_ERROR(HttpStatus.BAD_REQUEST, "E0005", "비밀번호와 비밀번호 확인이 같지 않습니다."),
     NOT_REGISTER_ID(HttpStatus.BAD_REQUEST, "E0006", "가입되지 않은 Id 입니다."),
-    WRONG_PASSWORD(HttpStatus.BAD_REQUEST, "E0007", "잘못된 비밀번호입니다."),
+    WRONG_PASSWORD(HttpStatus.UNAUTHORIZED, "E0007", "잘못된 비밀번호입니다."),
+    LOGOUT_USER(HttpStatus.UNAUTHORIZED, "E0007", "로그아웃 된 사용자입니다."),
 
+    NOT_EXIST_BOOK(HttpStatus.BAD_REQUEST, "E0009", "책이 존재하지 않습니다"),
+
+    DUPLICATION_COMMENT(HttpStatus.BAD_REQUEST, "E0010", "댓글은 한 책당 한 번만 가능합니다."),
+    NOT_EXIST_COMMENT(HttpStatus.BAD_REQUEST, "E0011", "댓글이 존재하지 않습니다."),
+    STAR_ARRANGE_ERROR(HttpStatus.BAD_REQUEST, "E0012", "평점은 0~5사이만 가능합니다"),
+
+    NOT_EXIST_HEART(HttpStatus.BAD_REQUEST, "E0013", "좋아요가 존재하지 않습니다."),
+    ALREADY_EXIST_HEART(HttpStatus.BAD_REQUEST, "E0014", "이미 좋아요 상태입니다."),
+
+    WRONG_TOKEN_SIGNED(HttpStatus.UNAUTHORIZED, "T0001", "잘못된 JWT 서명입니다."),
+    EXPIRED_TOKEN(HttpStatus.UNAUTHORIZED, "T0002", "만료된 JWT 토큰입니다."),
+    NOT_SUPPORT_TOKEN(HttpStatus.UNAUTHORIZED, "T0003", "지원되지 않는 JWT 토큰입니다."),
+    WRONG_TOKEN_INFO(HttpStatus.UNAUTHORIZED, "T0004", "JWT 토큰이 잘못되었습니다."),
 
     SECURITY_01(HttpStatus.UNAUTHORIZED, "S0001", "권한이 없습니다.");
 
