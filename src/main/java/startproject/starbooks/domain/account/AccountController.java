@@ -31,7 +31,7 @@ public class AccountController {
      */
     @CrossOrigin(origins = "*")
     @PostMapping("/signup")
-    public ResponseEntity signup(@Validated @RequestBody AccountRequestDto requestDto) {
+    public ResponseEntity<SuccessMessage> signup(@Validated @RequestBody AccountRequestDto requestDto) {
         log.info("[registerAccount 실행 시작]");
 
         accountService.singup(requestDto);
