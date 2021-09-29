@@ -23,16 +23,10 @@ public class HeartController {
     private final HeartService heartService;
     private final AccountRepository accountRepository;
 
-    /*@GetMapping("/books/{book_id}/heart")
-    public ResponseEntity<HeartMessage> readHeart(@PathVariable("book_id") Long bookId) {
 
-        HashMap<String, Object> heartMap = heartService.readHeart(bookId);
-
-        HeartMessage heartMessage = createHeartMessage(heartMap);
-
-        return ResponseEntity.ok(heartMessage);
-    }*/
-
+    /**
+     * 좋아요 조회
+     */
     @CrossOrigin(origins = "*")
     @GetMapping("/books/{book_id}/heart")
     public ResponseEntity<HeartMessage> readLoginHeart(@PathVariable("book_id") Long bookId, @AuthenticationPrincipal User user){
@@ -65,6 +59,9 @@ public class HeartController {
                 .build();
     }
 
+    /**
+     * 좋아요 생성
+     */
     @CrossOrigin(origins = "*")
     @PostMapping("/books/{book_id}/heart")
     public ResponseEntity<SuccessMessage> createHeart(@PathVariable("book_id") Long bookId, @AuthenticationPrincipal User user){
@@ -80,6 +77,9 @@ public class HeartController {
         return ResponseEntity.ok(loginMessage);
     }
 
+    /**
+     * 좋아요 취소
+     */
     @CrossOrigin(origins = "*")
     @DeleteMapping("/books/{book_id}/heart")
     public ResponseEntity<SuccessMessage> deleteHeart(@PathVariable Long book_id, @AuthenticationPrincipal User user){
