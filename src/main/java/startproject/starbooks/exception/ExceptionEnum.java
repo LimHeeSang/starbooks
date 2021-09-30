@@ -36,7 +36,8 @@ public enum ExceptionEnum {
     NOT_SUPPORT_TOKEN(HttpStatus.UNAUTHORIZED, "T0003", "지원되지 않는 JWT 토큰입니다."),
     WRONG_TOKEN_INFO(HttpStatus.UNAUTHORIZED, "T0004", "JWT 토큰이 잘못되었습니다."),
 
-    SECURITY_01(HttpStatus.UNAUTHORIZED, "S0001", "권한이 없습니다.");
+    SECURITY_01(HttpStatus.FORBIDDEN, "S0001", "권한이 없습니다."),    // 인증(토큰)은 있으나 접근권한 x
+    SECURITY_02(HttpStatus.UNAUTHORIZED, "S0002", "인증이 없습니다.");
 
 
     private final HttpStatus status;
