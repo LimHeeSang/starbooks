@@ -1,26 +1,19 @@
 package startproject.starbooks.security;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import startproject.starbooks.dto.TokenResponseDto;
 
-import javax.servlet.http.HttpServletResponse;
 
-import java.io.IOException;
 import java.security.Key;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -34,7 +27,6 @@ public class JwtTokenProvider {
     private static final String ISSUER = "heesang";
     private static final long ACCESS_TOKEN_EXPIRE_TIME = 1000 * 60 * 30;            // 30분
     private static final long REFRESH_TOKEN_EXPIRE_TIME = 1000 * 60 * 60 * 24 * 7;  // 7일
-    private final ObjectMapper objectMapper = new ObjectMapper();
 
     private final UserDetailsServiceImpl userDetailsService;
     private final Key key;
@@ -115,8 +107,6 @@ public class JwtTokenProvider {
         }
         return false;
     }
-
-
 
     private Claims parseClaims(String accessToken) {
         try {
