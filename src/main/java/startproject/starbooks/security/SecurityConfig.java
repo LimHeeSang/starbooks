@@ -29,10 +29,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
+    /*@Bean
     public ObjectMapper objectMapper() {
         return new ObjectMapper();
-    }
+    }*/
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

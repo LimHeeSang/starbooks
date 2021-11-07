@@ -1,6 +1,7 @@
 package startproject.starbooks.domain.heart;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
@@ -17,6 +18,7 @@ import java.util.HashMap;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
+@Slf4j
 public class HeartController {
 
     private final HeartService heartService;
@@ -31,6 +33,7 @@ public class HeartController {
     public ResponseEntity<HeartMessage> readLoginHeart(@PathVariable("book_id") Long bookId, @AuthenticationPrincipal User user){
 
         if (user == null) {
+            log.info("[비회원 좋아요 조회. book_id = {}]", bookId);
             HashMap<String, Object> heartMap = heartService.readHeart(bookId);
 
             HeartMessage heartMessage = createHeartMessage(heartMap);
@@ -38,6 +41,8 @@ public class HeartController {
             return ResponseEntity.ok(heartMessage);
 
         }
+
+        log.info("[회원 좋아요 조회. book_id = {}]", bookId);
 
         Account findAccount = accountRepository.findByUserId(user.getUsername()).orElseThrow(
                 () -> new ApiException(ExceptionEnum.NOT_REGISTER_ID)
