@@ -3,7 +3,7 @@
 + Star 팀원들과의 첫 프로젝트
 + 프론트엔드와 백엔드를 분리하여 개발(협업)을 경험해보는 것을 중점으로 둠
 
-## Star Team
+## ⭐Star Team
 + 현재기준 팀 구성(5명)
 + 프론트엔드(2명) : 신건우, 이세민
 + 안드로이드(1명) : 진혜윤
@@ -15,7 +15,7 @@
 + 명칭 : starbooks_project
 + 개발 인원 : 프론트(2명), 백엔드(1명, 임희상)
 + 서비스 기능 : 서적 조회(카테고리별), 회원가입 및 로그인, 리뷰(작성, 조회, 수정, 삭제), 좋아요(조회, 삽입, 삭제)
-+ 개발 환경 : Intellij, Springboot 2.5.4, Java 11, Mysql 8.0, Jpa(Spring Data JPA), QueryDsl
++ 개발 환경 : Intellij, Springboot 2.5.4, Java 11, Mysql 8.0, Jpa(Spring Data JPA), QueryDsl, SpringSecurity
 + 형상 관리 툴 : git
 + 협업 툴 : notion
 + 시연 영상 : 추후 추가 예정
