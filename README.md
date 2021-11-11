@@ -49,6 +49,7 @@
 + JPA 아키텍쳐
 + Spring Data JPA 경험
 + Spring exception 아키텍쳐(각 Api 별로 정의)
+<br/><br/>
 
 ## 개발 타임라인
 ![타임라인1](https://user-images.githubusercontent.com/87533189/141361604-ad36a362-5bc2-4701-b028-d023250ceb81.PNG)
@@ -56,7 +57,8 @@
 <br/><br/>
 
 
-## 만난 에러
-+ QueryDsl 버전문제 에러
+### 만났던 에러를 해결해주는데 도움을 얻은 곳
++ QueryDsl 버전문제
+[블로그 주소](https://dev-jo.tistory.com/38?category=947368)
 
 
