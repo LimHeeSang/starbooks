@@ -13,7 +13,7 @@
 
 ## 개요
 + 명칭 : starbooks_project
-+ 개발 인원 : 프론트(2명), 백엔드(1명, 임희상)
++ 개발 인원 : 프론트(2명), 안드로이드(1명), 백엔드(1명, 임희상)
 + 서비스 기능 : 서적 조회(카테고리별), 회원가입 및 로그인, 리뷰(작성, 조회, 수정, 삭제), 좋아요(조회, 삽입, 삭제)
 + 개발 환경 : Intellij, Springboot 2.5.4, Java 11, Mysql 8.0, Jpa(Spring Data JPA), QueryDsl, SpringSecurity
 + 형상 관리 툴 : git
