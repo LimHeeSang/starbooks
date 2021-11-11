@@ -41,13 +41,22 @@
 + 추후 추가 예정
 <br/><br/>
 
+## 프로젝트를 통해 공부한 것들
++ Spring을 이용한 RestApi방식 개발
++ AWS S3, EC2, RDS 호스팅, 리눅스 명령어
++ Jwt Token을 이용한 SpringSecurity 로그인 처리
++ 페이징 처리(QueryDsl)
++ JPA 아키텍쳐
++ Spring Data JPA 경험
++ Spring exception 아키텍쳐(각 Api 별로 정의)
+
 ## 개발 타임라인
 ![타임라인1](https://user-images.githubusercontent.com/87533189/141361604-ad36a362-5bc2-4701-b028-d023250ceb81.PNG)
 ![타임라인2](https://user-images.githubusercontent.com/87533189/141361618-8a9ac8fa-8727-4224-8845-097c6da612bf.PNG)
 <br/><br/>
 
 
-## 개선해야할 점
-+ 로그아웃api 기능 추가
+## 만난 에러
++ QueryDsl 버전문제 에러
 
 
