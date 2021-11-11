@@ -42,7 +42,8 @@
 
 
 ## 개발 타임라인
-
+![타임라인1](https://user-images.githubusercontent.com/87533189/141361036-b376c937-0088-4149-84a4-0d457d3a4e53.PNG)
+![타임라인2](https://user-images.githubusercontent.com/87533189/141361048-cc64d392-3a95-42e9-b969-46409f71c328.PNG)
 
 
 
