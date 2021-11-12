@@ -38,7 +38,10 @@
 <br/><br/>
 
 ## API 설계
-+ 추후 추가 예정
+![api1](https://user-images.githubusercontent.com/87533189/141422009-92e102d4-2d6b-402e-b671-f7982e0ad95d.PNG)
+![api2](https://user-images.githubusercontent.com/87533189/141422013-dcbc4be5-8194-4500-8297-72b2f86bc3a6.PNG)
+![api3](https://user-images.githubusercontent.com/87533189/141422014-069df447-ae70-4895-86cf-e66a102825c7.PNG)
+![api4](https://user-images.githubusercontent.com/87533189/141422016-6bfb3c16-e776-4b30-9152-d9f7353fc9a5.PNG)
 <br/><br/>
 
 ## 프로젝트를 통해 공부한 것들
