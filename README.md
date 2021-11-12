@@ -37,13 +37,6 @@
   + 서적에 좋아요 여부 조회(로그인/비로그인), 좋아요 하기, 좋아요 취소 기능
 <br/><br/>
 
-## API 설계
-![api1](https://user-images.githubusercontent.com/87533189/141422009-92e102d4-2d6b-402e-b671-f7982e0ad95d.PNG)
-![api2](https://user-images.githubusercontent.com/87533189/141422013-dcbc4be5-8194-4500-8297-72b2f86bc3a6.PNG)
-![api3](https://user-images.githubusercontent.com/87533189/141422014-069df447-ae70-4895-86cf-e66a102825c7.PNG)
-![api4](https://user-images.githubusercontent.com/87533189/141422016-6bfb3c16-e776-4b30-9152-d9f7353fc9a5.PNG)
-<br/><br/>
-
 ## 프로젝트를 통해 공부한 것들
 + Spring을 이용한 RestApi방식 개발
 + AWS S3, EC2, RDS 호스팅, 리눅스 명령어
@@ -53,6 +46,15 @@
 + Spring Data JPA 경험
 + Spring exception 아키텍쳐(각 Api 별로 정의)
 <br/><br/>
+
+## API 설계
+![api1](https://user-images.githubusercontent.com/87533189/141422009-92e102d4-2d6b-402e-b671-f7982e0ad95d.PNG)
+![api2](https://user-images.githubusercontent.com/87533189/141422013-dcbc4be5-8194-4500-8297-72b2f86bc3a6.PNG)
+![api3](https://user-images.githubusercontent.com/87533189/141422014-069df447-ae70-4895-86cf-e66a102825c7.PNG)
+![api4](https://user-images.githubusercontent.com/87533189/141422016-6bfb3c16-e776-4b30-9152-d9f7353fc9a5.PNG)
+<br/><br/>
+
+
 
 ## 개발 타임라인
 ![타임라인1](https://user-images.githubusercontent.com/87533189/141361604-ad36a362-5bc2-4701-b028-d023250ceb81.PNG)
