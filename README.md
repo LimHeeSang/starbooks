@@ -47,6 +47,10 @@
 + Spring exception 아키텍쳐(각 Api 별로 정의)
 <br/><br/>
 
+## 프로젝트를 통해 느낀점(회고록)
++ 추후 블로그에 정리후 링크 추가
+<br/><br/>
+
 ## API 설계
 ![api1](https://user-images.githubusercontent.com/87533189/141422009-92e102d4-2d6b-402e-b671-f7982e0ad95d.PNG)
 ![api2](https://user-images.githubusercontent.com/87533189/141422013-dcbc4be5-8194-4500-8297-72b2f86bc3a6.PNG)
