@@ -24,10 +24,6 @@
 ## 프로젝트 특징
 + Vue.js, Spring Framework 기반
 + 사용자가 해당 서적을 좋아요(찜)하거나, 서적에 대한 리뷰를 남기고, 리뷰와 좋아요를 확인할 수 있는 서비스
-+ 프론트엔드와 백엔드를 분리하여 개발 진행
-  + 프론트 : AWS S3 정적 호스팅
-  + 백엔드 : AWS (EC2 서버 + RDS 서버) 호스팅
-  + 빌드 후, S3와 EC2연동
 + 초기 더미데이터는 서적 홈페이지 크롤링
 + 로그인 처리는 Jwt Token방식을 이용한 SpringSecurity를 통해 구현
 + RestApi 방식으로 CRUD 구현
@@ -39,7 +35,6 @@
 
 ## 프로젝트를 통해 공부한 것들
 + Spring을 이용한 RestApi방식 개발
-+ AWS S3, EC2, RDS 호스팅, 리눅스 명령어
 + Jwt Token을 이용한 SpringSecurity 로그인 처리
 + 페이징 처리(QueryDsl)
 + JPA 아키텍쳐
