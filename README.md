@@ -43,7 +43,7 @@
 <br/><br/>
 
 ## 프로젝트를 통해 느낀점(회고록)
-+ 추후 블로그에 정리후 링크 추가
++ [회고록](https://heesangstudynote.tistory.com/62)
 <br/><br/>
 
 ## API 설계
